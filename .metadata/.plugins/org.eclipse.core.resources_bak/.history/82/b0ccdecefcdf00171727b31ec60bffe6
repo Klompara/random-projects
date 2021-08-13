@@ -1,0 +1,28 @@
+package Game;
+
+import java.awt.Color;
+import java.awt.Graphics2D;
+
+public class GUI {
+
+	private Main main;
+	
+	public GUI (Main main) {
+		this.main = main;
+	}
+	
+	public void tick() {
+		
+	}
+
+	public void render(Graphics2D g) {
+		g.setFont(Main.font(20));
+		for(int i = 0; i < main.getPlayerList().size(); i++) {
+			g.setColor(Color.gray);
+			g.drawString("Player " + i + ": " + main.getPlayerList().get(i).getScore(), 20+2, 20+i*25+2);
+			g.setColor(main.getPlayerList().get(i).getColor());
+			g.drawString("Player " + i + ": " + main.getPlayerList().get(i).getScore(), 20, 20+i*25);		
+		}
+	}
+	
+}

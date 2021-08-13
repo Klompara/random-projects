@@ -1,0 +1,26 @@
+package app;
+
+import org.lwjgl.opengl.Display;
+import org.lwjgl.opengl.GL11;
+
+import renderEngine.DisplayManager;
+
+public class BlockGame {
+	
+	public BlockGame() {
+		System.out.println("OpenGL: " + GL11.glGetString(GL11.GL_VERSION));
+		DisplayManager.createDisplay();
+		
+		while(!Display.isCloseRequested()) {
+			
+			DisplayManager.updateDisplay();
+		}
+		
+		DisplayManager.closeDisplay();
+	}
+	
+	public static void main(String[] args) {
+		new BlockGame();
+	}
+
+}

@@ -1,0 +1,16 @@
+package app;
+
+import org.lwjgl.opengl.Display;
+
+public class Minecraft {
+
+	public static void main(String[] args) {
+		Display
+		while(!Display.isCloseRequested()) {
+			
+		}
+		
+		Display.destroy();
+	}
+
+}

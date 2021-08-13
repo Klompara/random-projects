@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Window.java&apos; to &apos;Bildschirmschoner/src/Schoner&apos;&#x0D;&#x0A;- Original project: &apos;Example&apos;&#x0D;&#x0A;- Destination element: &apos;Bildschirmschoner/src/Schoner&apos;&#x0D;&#x0A;- Original element: &apos;com.Game.net.Window.java&apos;" description="Copy compilation unit" destination="=Bildschirmschoner/src&lt;Schoner" element1="/src&lt;com.Game.net{Window.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1429793745995" units="1" version="1.0"/>
+</session>

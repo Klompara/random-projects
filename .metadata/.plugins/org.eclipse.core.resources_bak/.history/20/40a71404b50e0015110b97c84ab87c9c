@@ -1,0 +1,29 @@
+import javax.swing.JOptionPane;
+
+
+public class Main implements Runnable{
+	private Thread thread;
+	private boolean running = false;
+	private int timer = 0;
+	private String sendKey;
+
+	public void run() {
+		while(running){
+			tick();
+		}
+	}
+	private void tick(){
+		
+	}
+	
+	public static void main(String[] args){
+		new Main();
+	}
+	public Main(){
+		thread = new Thread(this);
+		thread.start();
+		
+		timer = Integer.parseInt(JOptionPane.showInputDialog("Abstand (sek)")) *1000;
+		sendKey = JOptionPane.showInputDialog("zu sendende taste");
+	}
+}

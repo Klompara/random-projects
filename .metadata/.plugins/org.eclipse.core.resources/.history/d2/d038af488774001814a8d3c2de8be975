@@ -1,0 +1,29 @@
+package app;
+
+import java.util.ArrayList;
+
+import bll.SortHelper;
+
+public class Start {
+
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+		SortHelper sh = SortHelper.getInstance();
+		ArrayList<Integer> a = new ArrayList<Integer>();
+		//for(int i = 0; i < 10; i++) {
+		//	a.add(new Random().nextInt(100));
+		//}
+		a.add(85);
+		a.add(75);
+		a.add(65);
+		a.add(55);
+		a.add(45);
+		a.add(35);
+		a.add(25);
+		a.add(15);
+		System.out.println(a.toString());
+		sh.quicksort(a, 0, a.size()-1);
+		System.out.println(a.toString());
+	}
+
+}

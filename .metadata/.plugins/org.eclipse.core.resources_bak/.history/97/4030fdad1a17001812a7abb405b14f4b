@@ -1,0 +1,17 @@
+package app;
+
+import java.io.IOException;
+
+public class Ping {
+
+	public static void main(String[] args) {
+		for(int i = 0; i < 1000; i++) {
+			try {
+				Runtime.getRuntime().exec("ping RENE-LAPTOP");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+}

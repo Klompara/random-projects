@@ -1,0 +1,106 @@
+package receiver;
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.SocketException;
+
+public class Main {
+	public static boolean locked = true;
+	public static int mouseX, mouseY;
+	public static final int port = 8556;
+	
+	public static void main(String[] args) {
+		runSystemCommand("");
+		Runnable mouseLock = new Runnable() {
+			public void run() {
+				Toolkit tk = Toolkit.getDefaultToolkit();
+				if(mouseX > tk.getScreenSize().width) {
+					mouseX = tk.getScreenSize().width;
+				}else if(mouseX < 0) {
+					mouseX = 0;
+				}
+				if(mouseY > tk.getScreenSize().height) {
+					mouseY = tk.getScreenSize().height;
+				}else if(mouseY < 0) {
+					mouseY = 0;
+				}
+				while(locked) {
+					Robot r = null;
+					try {
+						r = new Robot();
+					} catch (AWTException e) {
+						e.printStackTrace();
+					}
+
+					r.mouseMove(mouseX, mouseY);
+				}
+			}
+		};
+		Thread mouseLocker = new Thread(mouseLock);
+		
+		DatagramSocket socket = null;
+		try {
+			socket = new DatagramSocket(port);
+			System.out.println("Warte auf Pakete... Port: "+port);
+		} catch (SocketException e1) {
+			e1.printStackTrace();
+		}
+		boolean running = true;
+		while(running) {
+			byte[] data = new byte[1024];
+			DatagramPacket packet = new DatagramPacket(data, data.length);
+			try {
+				socket.receive(packet);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			String message = new String(packet.getData(), 0, packet.getLength());
+			message = message.replace("", "");
+			System.out.println(message);
+			if(message.startsWith("ChangeVol")) {
+				double factor = Double.parseDouble(message.split(";")[1])/100*65535;
+				runSystemCommand("sysapi.exe changesysvolume "+(int)factor);
+			}else if(message.startsWith("OpenDrive")) {
+				runSystemCommand("sysapi.exe cdrom open "+message.split(";")[1]+":");
+			}else if(message.startsWith("SetVol")) {
+				double factor = Double.parseDouble(message.split(";")[1])/100*65535;
+				runSystemCommand("sysapi.exe setsysvolume "+(int)factor);
+			}else if(message.startsWith("stop")) {
+				System.exit(0);
+			}else if(message.startsWith("MonitorOff")) {
+				runSystemCommand("sysapi.exe monitor off");
+			}else if(message.startsWith("LockMouse")) {
+				locked = true;
+				mouseLocker.start();
+			}else if(message.startsWith("UnlockMouse")) {
+				mouseX = Integer.parseInt(message.split(";")[1]);
+				mouseY = Integer.parseInt(message.split(";")[2]);
+				try {
+					locked = false;
+					mouseLocker.join();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}else if(message.startsWith("Speak")) {
+				runSystemCommand("sysapi.exe speak text \""+message.split(";")[1]+"\"");
+			}else if(message.startsWith("Shutdown")) {
+				runSystemCommand("sysapi.exe exitwin poweroff");
+			}else{
+				System.out.println("Shit happens");
+			}
+		}
+	}
+	
+	public static void runSystemCommand(String command) {
+		try {
+			System.out.println("Execute: "+command);
+			Runtime.getRuntime().exec(command);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}

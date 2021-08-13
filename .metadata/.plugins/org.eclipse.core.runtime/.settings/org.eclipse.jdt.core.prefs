@@ -1,0 +1,17 @@
+eclipse.preferences.version=1
+org.eclipse.jdt.core.classpathVariable.JRE_LIB=C\:/Program Files/Java/jre1.8.0_131/lib/rt.jar
+org.eclipse.jdt.core.classpathVariable.JRE_SRC=
+org.eclipse.jdt.core.classpathVariable.JRE_SRCROOT=
+org.eclipse.jdt.core.classpathVariable.JUNIT_HOME=C\:/Users/Michael/.p2/pool/plugins/org.junit_4.12.0.v201504281640/
+org.eclipse.jdt.core.classpathVariable.M2_REPO=C\:/Users/Michael/.m2/repository
+org.eclipse.jdt.core.codeComplete.visibilityCheck=enabled
+org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
+org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.8
+org.eclipse.jdt.core.compiler.compliance=1.8
+org.eclipse.jdt.core.compiler.problem.assertIdentifier=error
+org.eclipse.jdt.core.compiler.problem.enumIdentifier=error
+org.eclipse.jdt.core.compiler.source=1.8
+org.eclipse.jdt.core.userLibrary.LWJGL\ +\ PNGdecoder=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<userlibrary systemlibrary\="false" version\="2">\r\n\t<archive path\="D\:/Programme/Eclipse/Eclipse_Workspace/._Engine contents/lib/jars/lwjgl.jar">\r\n\t\t<attributes>\r\n\t\t\t<attribute name\="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value\="D\:/Programme/Eclipse/Eclipse_Workspace/._Engine contents/lib/natives-win"/>\r\n\t\t</attributes>\r\n\t</archive>\r\n\t<archive path\="D\:/Programme/Eclipse/Eclipse_Workspace/._Engine contents/lib/jars/lwjgl_util.jar">\r\n\t\t<attributes>\r\n\t\t\t<attribute name\="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value\="D\:/Programme/Eclipse/Eclipse_Workspace/._Engine contents/lib/natives-win"/>\r\n\t\t</attributes>\r\n\t</archive>\r\n\t<archive path\="D\:/Programme/Eclipse/Eclipse_Workspace/._Engine contents/lib/jars/slick-util.jar"/>\r\n\t<archive path\="D\:/Programme/Eclipse/Eclipse_Workspace/._Engine contents/lib/jars/PNGDecoder.jar"/>\r\n</userlibrary>\r\n
+org.eclipse.jdt.core.userLibrary.OpenCV=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<userlibrary systemlibrary\="false" version\="2">\r\n\t<archive path\="C\:/Users/Michael/Downloads/opencv/build/java/opencv-342.jar">\r\n\t\t<attributes>\r\n\t\t\t<attribute name\="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value\="C\:/Users/Michael/Downloads/opencv/build/java/x64"/>\r\n\t\t</attributes>\r\n\t</archive>\r\n</userlibrary>\r\n
+org.eclipse.jdt.core.userLibrary.WebcamCapture=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<userlibrary systemlibrary\="false" version\="2">\r\n\t<archive path\="D\:/Programme/Eclipse/Eclipse_Workspace/._Engine contents/webcam-capture-0.3.10-dist/webcam-capture-0.3.10.jar"/>\r\n\t<archive path\="D\:/Programme/Eclipse/Eclipse_Workspace/._Engine contents/webcam-capture-0.3.10-dist/libs/bridj-0.6.2.jar"/>\r\n\t<archive path\="D\:/Programme/Eclipse/Eclipse_Workspace/._Engine contents/webcam-capture-0.3.10-dist/libs/slf4j-api-1.7.2.jar"/>\r\n</userlibrary>\r\n
+org.eclipse.jdt.core.userLibrary.rxtx=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<userlibrary systemlibrary\="false" version\="2">\r\n\t<archive path\="/LedCube/lib_rxtx/RXTXcomm.jar"/>\r\n</userlibrary>\r\n

@@ -1,0 +1,32 @@
+package app;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+
+import bll.Task;
+import bll.Task.FAECHER;
+import dal.CSVIO;
+import gui.MainFrame;
+
+public class Start {
+
+	public static void main(String[] args) {
+		CSVIO io = new CSVIO();
+		ArrayList<Task> tasks = new ArrayList<Task>();
+		SimpleDateFormat dt = new SimpleDateFormat("dd.MM.yyyy");
+		try {
+			tasks.add(new Task(FAECHER.AM, "HÜ", dt.parse("32.03.2018")));
+			tasks.add(new Task(FAECHER.BSPK, "TEST", dt.parse("12.03.2018")));
+			tasks.add(new Task(FAECHER.BWM_RW, "BLA", dt.parse("22.03.2018")));
+			tasks.add(new Task(FAECHER.NW_CH, "ADAF", dt.parse("123.03.2018")));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+		io.writeTasks(tasks);
+		System.out.println("Taskplaner");
+		new MainFrame();
+	}
+
+}

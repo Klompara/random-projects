@@ -1,0 +1,15 @@
+package gui;
+
+import java.util.ArrayList;
+
+import bll.Task;
+
+public class DialogNotFinishedTasks {
+
+	private ArrayList<Task> tasks;
+	
+	public DialogNotFinishedTasks(ArrayList<Task> tasks) {
+		this.tasks = tasks;
+	}
+	
+}

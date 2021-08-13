@@ -1,0 +1,40 @@
+package app;
+
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
+public class Main {
+
+	public static void main(String[] args) {
+		BufferedImage img = null;
+		args = new String[2];
+		args[0] = "C:\\Users\\Michael\\Desktop\\Untitled.png";
+		args[1] = "C:\\Users\\Michael\\Desktop\\Untitled1.png";
+		try {
+			img = ImageIO.read(new File(args[0]));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		for (int y = 0; y < img.getHeight(); y++) {
+			for (int x = 0; x < img.getWidth(); x++) {
+				int clr = img.getRGB(x, y);
+				int red = (clr & 0x00ff0000) >> 16;
+				int green = (clr & 0x0000ff00) >> 8;
+				int blue = clr & 0x000000ff;
+				//System.out.println("R: " + red + ", G: " + green +", B: " + blue);
+				
+				img.setRGB(x, y, clr);
+			}
+		}
+		
+		try {
+			ImageIO.write(img, "PNG", new File(args[1]));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

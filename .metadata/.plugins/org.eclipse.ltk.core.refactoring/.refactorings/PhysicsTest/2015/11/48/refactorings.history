@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy source folder &apos;jbox2d-library-2.1.2.2.jar&apos; to &apos;HighEndGame&apos;&#x0D;&#x0A;- Original project: &apos;PhysicsTest&apos;&#x0D;&#x0A;- Destination element: &apos;HighEndGame&apos;&#x0D;&#x0A;- Original element: &apos;PhysicsTest/lib/jbox2d-library-2.1.2.2.jar&apos;" description="Copy source folder" element1="/lib\/jbox2d-library-2.1.2.2.jar" flags="6" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyRoots" roots="1" stamp="1448292188191" target="/HighEndGame" version="1.0"/>
+</session>

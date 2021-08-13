@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;for-loop-speed&apos;" deleteContents="true" description="Delete resource &apos;for-loop-speed&apos;" element1="/for-loop-speed" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1440700044104"/>
+</session>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;MouseListener.java&apos; to &apos;Tetris/src/Game&apos;&#x0D;&#x0A;- Original project: &apos;Paint&apos;&#x0D;&#x0A;- Destination element: &apos;Tetris/src/Game&apos;&#x0D;&#x0A;- Original element: &apos;Paint.MouseListener.java&apos;" description="Copy compilation unit" destination="=Tetris/src&lt;Game" element1="/src&lt;Paint{MouseListener.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1505418338652" units="1" version="1.0"/>
+</session>

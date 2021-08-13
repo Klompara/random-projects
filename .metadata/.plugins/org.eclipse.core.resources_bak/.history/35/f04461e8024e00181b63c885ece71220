@@ -1,0 +1,15 @@
+package gui;
+
+import javax.swing.JPanel;
+
+public class DialogTaskEdit extends JPanel {
+
+	private Task task;
+	
+	public DialogTaskEdit(Task task) {
+		this.task = task;
+	}
+	
+	
+	
+}

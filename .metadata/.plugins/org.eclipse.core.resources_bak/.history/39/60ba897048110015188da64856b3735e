@@ -1,0 +1,25 @@
+package Game;
+
+import java.awt.Graphics2D;
+import java.util.LinkedList;
+
+import Game.Entitys.Player;
+
+public class Handler {
+	
+	public static LinkedList<E>
+	
+	private Player player;
+	
+	public Handler() {
+		player = new Player();
+	}
+	
+	public void tick() {
+		player.tick();
+	}
+	
+	public void render(Graphics2D g){
+		player.render(g);
+	}
+}

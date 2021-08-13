@@ -1,0 +1,149 @@
+package Game;
+
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
+import java.util.Random;
+
+import javax.swing.JOptionPane;
+
+public class Player {
+
+	private double x, y;
+	private Color color;
+	
+	private boolean makeHole = false;
+	private long timeHoleMake = 0;
+	
+	private double dx;
+	private double dy;
+	private double rad;
+	private double speed;
+	private double angle = 0;
+	public boolean left;
+	public boolean right;
+	private double angleMove;
+	private double normalSpeed;
+	private double size = 10;
+	private Main main;
+	
+	private int score = 0;
+	
+	private boolean dead;
+	
+	private int controlLeft;
+	private int controlRight;
+	
+	public Player(Main main) {
+		Random r = new Random();
+		color = new Color(r.nextInt(255), r.nextInt(255), r.nextInt(255)).brighter();
+		this.main = main;
+		String left = JOptionPane.showInputDialog("Left Key: ");
+		String right = JOptionPane.showInputDialog("Right Key: ");
+		if(left.toLowerCase() == "left") {
+			this.controlLeft = KeyEvent.VK_LEFT;
+			System.out.println(left.toLowerCase());
+		} else {
+			this.controlLeft = KeyEvent.getExtendedKeyCodeForChar(left.toCharArray()[0]);
+		}
+		if(right.toLowerCase() == "right") {
+			this.controlRight = KeyEvent.VK_RIGHT;
+		} else {
+			this.controlRight = KeyEvent.getExtendedKeyCodeForChar(right.toCharArray()[0]);
+		}
+		
+		reset();
+	}
+	
+	public void reset() {
+		Random r = new Random();
+		dead = false;
+		this.x = r.nextInt(Main.WIDTH-300) + 150;
+		this.y = r.nextInt(Main.HEIGHT-300) + 150;
+		normalSpeed = 2.5;
+		angleMove = 2;
+		angle = r.nextDouble() * 360;
+	}
+	
+	public void tick() {
+		if(KeyInput.pressedKeys.contains(controlLeft)) angle-=angleMove+normalSpeed/3;
+		if(KeyInput.pressedKeys.contains(controlRight)) angle+=angleMove+normalSpeed/3;
+		
+		speed = normalSpeed;
+		
+		rad = Math.toRadians(angle);
+		dx = Math.cos(rad) * speed;
+		dy = Math.sin(rad) * speed;
+		
+		x += dx;
+		y += dy;
+		
+		if(new Random().nextInt(100) == 1 && !makeHole && main.isStartedDrawing()) {
+			makeHole = true;
+			timeHoleMake = System.currentTimeMillis();
+		}
+		
+		if(makeHole) {
+			if(System.currentTimeMillis()-timeHoleMake > 100 + (size*10)) {
+				makeHole = false;
+			}
+		}
+		if(colliding()) {
+			dead = true;
+		}
+	}
+	
+	private boolean colliding() {
+		boolean rgw = false;
+		if((int)(x+dx*(size/4)) > main.getBiMap().getWidth()-1 || (int)(x+dx*(size/4)) < 0 || (int)(y+dy*(size/4)) > main.getBiMap().getHeight()-1 || (int)(y+dy*(size/4)) < 0) {
+			//System.out.println("Colliding out of bounds");
+			return true;
+		}
+		Color pixelColor = new Color(main.getBiMap().getRGB((int)(x+dx*(size/4)), (int)(y+dy*(size/4))));
+		if(pixelColor.getRed() != 0 || pixelColor.getGreen() != 0 || pixelColor.getBlue() != 0) {
+			rgw = true;
+			//System.out.println(pixelColor.getRed() + " " + pixelColor.getGreen() + " " +pixelColor.getBlue());
+		}
+		
+		return rgw;
+	}
+	
+	public void render(Graphics2D g) {
+		if(main.isStartedDrawing() && !makeHole) {
+			g = main.getBiMap().createGraphics();
+		} else if(!main.isStartedDrawing()) {
+			g.setFont(Main.font(20));
+			g.setColor(color);
+			String text = KeyEvent.getKeyText(controlLeft) + " " + KeyEvent.getKeyText(controlRight);
+			g.drawString(text, (int)x - (Main.getFWidth(text, g)/2), (int)y-10);
+		}
+		g.setColor(color);
+		g.fillOval((int)(x-size/2), (int)(y-size/2), (int)size, (int)size);
+		
+		
+	}
+
+	public boolean isDead() {
+		return dead;
+	}
+
+	public void setDead(boolean dead) {
+		this.dead = dead;
+	}
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
+	}
+
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+}

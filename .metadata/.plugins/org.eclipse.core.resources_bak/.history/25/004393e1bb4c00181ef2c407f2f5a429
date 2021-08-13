@@ -1,0 +1,23 @@
+package gui;
+
+import java.util.ArrayList;
+
+import javax.swing.JDialog;
+
+import bll.Task;
+
+public class DialogNotFinishedTasks extends JDialog{
+
+	private static final long serialVersionUID = 1L;
+	private ArrayList<Task> tasks;
+	
+	public DialogNotFinishedTasks(ArrayList<Task> tasks) {
+		this.tasks = tasks;
+		initializeControls();
+	}
+	
+	private void initializeControls() {
+		
+	}
+	
+}

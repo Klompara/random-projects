@@ -1,0 +1,17 @@
+package gui;
+
+import java.util.ArrayList;
+
+import javax.swing.JDialog;
+
+import bll.Task;
+
+public class DialogNotFinishedTasks extends JDialog{
+
+	private ArrayList<Task> tasks;
+	
+	public DialogNotFinishedTasks(ArrayList<Task> tasks) {
+		this.tasks = tasks;
+	}
+	
+}

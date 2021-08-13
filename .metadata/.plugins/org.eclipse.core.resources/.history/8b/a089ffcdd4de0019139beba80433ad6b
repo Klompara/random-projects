@@ -1,0 +1,116 @@
+package app;
+
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Date;
+
+import bll.SerialLED;
+import bll.animation.Animation;
+import bll.animation.Helix;
+import bll.animation.Plates;
+import bll.animation.Rainbow;
+import bll.animation.SineWave;
+import bll.animation.Smiley;
+import dal.ArduinoConnector;
+import gui.Camera;
+
+public class Start {
+
+	private boolean running = true;
+
+	private long tickrate = 100;
+	private Date lastTicked;
+
+	private SerialLED[][][] map;
+	public static final int cubeSize = 8;
+
+	private ArrayList<Animation> animationen = new ArrayList<Animation>();
+	private int currentAnimation = 1;
+
+	public Start() {
+		ArduinoConnector a = new ArduinoConnector();
+		//a.openCon();
+		Camera.startCamera(this);
+		animationen.add(new Plates());
+		animationen.add(new Smiley());
+		animationen.add(new Rainbow());
+		animationen.add(new SineWave());
+		animationen.add(new Helix());
+
+		map = new SerialLED[8][8][8];
+		for (int x = 0; x < cubeSize; x++) {
+			for (int y = 0; y < cubeSize; y++) {
+				for (int z = 0; z < cubeSize; z++) {
+					map[x][y][z] = new SerialLED(new Color(0, 0, 0));
+				}
+			}
+		}
+		lastTicked = new Date();
+		
+		while (running) {
+			if (lastTicked.getTime() + tickrate < System.currentTimeMillis()) {
+				lastTicked = new Date();
+				clearMap();
+				if (animationen.get(currentAnimation).tick(map)) {
+					running = false;
+				}
+				//a.sendMessage(ledsToArray());
+			}
+		}
+		a.closeCon();
+		System.exit(0);
+	}
+
+	private String[] ledsToArray() {
+		String[] output = new String[cubeSize];
+		int counter;
+		for (int z = 0; z < Start.cubeSize; z++) {
+			counter = 0;
+			output[z] = "";
+			for (int x = 0; x < Start.cubeSize; x++) {
+				for (int y = 0; y < Start.cubeSize; y++) {
+					Color c = map[x][y][z].getC();
+					output[z] += (char) counter + "" + (char) trimColor(c.getRed()) + ""
+							+ (char) trimColor(c.getGreen()) + (char) trimColor(c.getBlue());
+					counter++;
+				}
+			}
+		}
+		return output; // [id rgb]*64
+	}
+
+	private int trimColor(int c) {
+		if (c >= 253)
+			c = 252;
+		return c;
+	}
+
+	private void clearMap() {
+		for (int x = 0; x < cubeSize; x++) {
+			for (int y = 0; y < cubeSize; y++) {
+				for (int z = 0; z < cubeSize; z++) {
+					map[x][y][z].setC(new Color(0, 0, 0));
+				}
+			}
+		}
+	}
+
+	public Color[][][] getmap() {
+		Color[][][] c = new Color[cubeSize][cubeSize][cubeSize];
+		if (map == null)
+			return null;
+		for (int x = 0; x < cubeSize; x++) {
+			for (int y = 0; y < cubeSize; y++) {
+				for (int z = 0; z < cubeSize; z++) {
+					c[x][y][z] = map[x][y][z].getC();
+				}
+			}
+		}
+		return c;
+	}
+
+	public static void main(String[] args) {
+		new Start();
+	}
+
+}

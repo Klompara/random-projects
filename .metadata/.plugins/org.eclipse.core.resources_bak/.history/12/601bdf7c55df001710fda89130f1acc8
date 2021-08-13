@@ -1,0 +1,113 @@
+package Game;
+
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.util.Random;
+
+public class Player {
+
+	private double x, y;
+	private Color color;
+	
+	private boolean makeHole = false;
+	private long timeHoleMake = 0;
+	
+	private double dx;
+	private double dy;
+	private double rad;
+	private double speed;
+	private double angle = 0;
+	public boolean left;
+	public boolean right;
+	private double angleMove;
+	private double normalSpeed;
+	private double size = 10;
+	private Main main;
+	
+	private boolean dead = false;
+	
+	private int controlLeft;
+	private int controlRight;
+	
+	public Player(Main main, int controlLeft, int controlRight) {
+		Random r = new Random();
+		this.x = (r.nextDouble()*(Main.WIDTH-150))+150;
+		this.y = (r.nextDouble()*(Main.HEIGHT-150))+150;
+		color = new Color(new Random().nextInt(255), new Random().nextInt(255), new Random().nextInt(255)).brighter();
+		normalSpeed = 2.5;
+		angleMove = 2;
+		angle = r.nextDouble() * 360;
+		this.main = main;
+		this.controlLeft = controlLeft;
+		this.controlRight = controlRight;
+	}
+	
+	public void tick() {
+		
+		if(KeyInput.pressedKeys.contains(controlLeft)) angle-=angleMove+normalSpeed/3;
+		if(KeyInput.pressedKeys.contains(controlRight)) angle+=angleMove+normalSpeed/3;
+		
+		speed = normalSpeed;
+		
+		rad = Math.toRadians(angle);
+		dx = Math.cos(rad) * speed;
+		dy = Math.sin(rad) * speed;
+		
+		x += dx;
+		y += dy;
+		
+		if(new Random().nextInt(300) == 1 && !makeHole && main.isStartedDrawing()) {
+			makeHole = true;
+			timeHoleMake = System.currentTimeMillis();
+			System.out.println("Make Hole");
+		}
+		
+		if(makeHole) {
+			if(System.currentTimeMillis()-timeHoleMake > 100 + (size*10)) {
+				makeHole = false;
+			}
+		}
+		if(colliding()) {
+			dead = true;
+			System.out.println("Collide");
+		}
+	}
+	
+	private boolean colliding() {
+		boolean rgw = false;
+		if((int)(x+dx*(size/4)) > main.getBiMap().getWidth() || (int)(x+dx*(size/4)) < 0 || (int)(y+dy*(size/4)) > main.getBiMap().getHeight() || (int)(y+dy*(size/4)) < 0) {
+			return true;
+		}
+		Color pixelColor = new Color(main.getBiMap().getRGB((int)(x+dx*(size/4)), (int)(y+dy*(size/4))));
+		if(pixelColor.getRed() != 0 || pixelColor.getGreen() != 0 || pixelColor.getBlue() != 0) {
+			rgw = true;
+			//System.out.println(pixelColor.getRed() + " " + pixelColor.getGreen() + " " +pixelColor.getBlue());
+		}
+		
+		if((int)(x+dx*(size/4)) > Main.WIDTH || (int)(x+dx*(size/4)) < 0 || (y+dy*(size/4)) > Main.HEIGHT || (y+dy*(size/4)) < 0) {
+			rgw = true;
+		}
+		
+		return rgw;
+	}
+	
+	public void render(Graphics2D g) {
+		if(main.isStartedDrawing() && !makeHole) {
+			g = main.getBiMap().createGraphics();
+		}
+		g.setColor(color);
+		g.fillOval((int)(x-size/2), (int)(y-size/2), (int)size, (int)size);
+		
+		g.setColor(Color.pink);
+		g.fillOval((int)(x+dx*(size/4)), (int)(y+dy*(size/4)), 2, 2);
+	}
+
+	public boolean isDead() {
+		return dead;
+	}
+
+	public void setDead(boolean dead) {
+		this.dead = dead;
+	}
+}

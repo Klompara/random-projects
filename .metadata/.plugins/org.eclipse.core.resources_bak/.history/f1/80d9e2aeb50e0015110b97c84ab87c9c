@@ -1,0 +1,39 @@
+import java.awt.AWTException;
+import java.awt.Robot;
+
+import javax.swing.JOptionPane;
+
+
+public class Main implements Runnable{
+	private Thread thread;
+	private boolean running = false;
+	private int timer = 0;
+	private String sendKey;
+	private Robot r;
+
+	public void run() {
+		while(running){0
+			tick();
+		}000
+	}
+	private void tick(){
+		try { Thread.sleep(timer);
+		} catch (InterruptedException e) { e.printStackTrace(); }
+		r.keyPress(48);
+	}
+	
+	public static void main(String[] args){
+		new Main();
+	}
+	public Main(){
+		thread = new Thread(this);
+		thread.start();
+		try { r = new Robot();
+		} catch (AWTException e) { e.printStackTrace(); }
+		
+		timer = Integer.parseInt(JOptionPane.showInputDialog("Abstand (sek)")) *1000;
+		sendKey = JOptionPane.showInputDialog("zu sendende taste");
+		running = true;
+		run();
+	}
+}

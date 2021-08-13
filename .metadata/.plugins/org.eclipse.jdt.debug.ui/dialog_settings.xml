@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.jdt.debug.ui.MAIN_METHOD_SELECTION_DIALOG">
+		<item value="true" key="ShowStatusLine"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History&gt;&#x0D;&#x0A;&lt;historyRootNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=Minecropfn/D:\/Eclipse_Workspace\/._Engine contents\/lib\/jars\/lwjgl_util.jar&amp;lt;org.lwjgl.util.mapped(CacheLineSize.class[CacheLineSize&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=PhysicsTest/src&amp;lt;episode_34{PerPixelLighting.java[PerPixelLighting&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=PhysicsTest/src&amp;lt;episode_38{ParticleDemo2D.java[ParticleDemo2D&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=PhysicsTest/src&amp;lt;episode_32{ModelDemo.java[ModelDemo&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=PhysicsTest/src&amp;lt;episode_21{JInputDemo.java[JInputDemo&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=PhysicsTest/src&amp;lt;episode_39{JBulletCode.java[JBulletCode&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=Random Fun/src&amp;lt;RandFun{Random.java[Random&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=HighEndGame/D:\/Programme\/Eclipse\/Eclipse_Workspace\/._Engine contents\/lib\/jars\/lwjgl_util.jar&amp;lt;org.lwjgl.util.mapped(CacheLineSize.class[CacheLineSize&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=NetworkGame/src&amp;lt;com.MKL.Game{Main.java[Main&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=Schutah/src&amp;lt;Game{MainLoop.java[MainLoop&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=WebcamCapture/src&amp;lt;main{Main.java[Main&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=HighEndGame/src&amp;lt;Main{MainClass.java[MainClass&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=Minecropfn/src&amp;lt;Game{Main.java[Main&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=3DTesting/src&amp;lt;engineTester{MainGameLoop.java[MainGameLoop&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=Blockgame/src&amp;lt;app{BlockGame.java[BlockGame&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=Taskplaner/src&amp;lt;app{Start.java[Start&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=StudentManagement/src&amp;lt;app{Start.java[Start&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=18_JTable_Kleinlercher/src&amp;lt;app{Start.java[Start&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=LedCube/src&amp;lt;app{Start.java[Start&lt;/infoNode&gt;&#x0D;&#x0A;&lt;/historyRootNode&gt;&#x0D;&#x0A;&lt;/History&gt;" key="History"/>
+		<section name="DialogBoundsSettings">
+			<item value="600" key="DIALOG_WIDTH"/>
+			<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+			<item value="500" key="DIALOG_HEIGHT"/>
+			<item value="344" key="DIALOG_X_ORIGIN"/>
+			<item value="163" key="DIALOG_Y_ORIGIN"/>
+		</section>
+	</section>
+</section>

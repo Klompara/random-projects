@@ -1,0 +1,21 @@
+package Game;
+
+import java.awt.Graphics2D;
+
+public class GUI {
+
+	private Main main;
+	
+	public GUI (Main main) {
+		this.main = main;
+	}
+	
+	public void tick() {
+		
+	}
+
+	public void render(Graphics2D g) {
+		
+	}
+	
+}

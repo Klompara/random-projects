@@ -1,0 +1,10 @@
+package bll;
+
+public class Einzelperson implements Observer {
+
+	@Override
+	public void update() {
+		
+	}
+
+}

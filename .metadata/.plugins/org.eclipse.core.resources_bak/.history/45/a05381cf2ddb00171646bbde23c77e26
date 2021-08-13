@@ -1,0 +1,68 @@
+package Game;
+
+import java.awt.Color;
+import java.awt.Graphics2D;
+
+public class Player {
+
+	private double x, y;
+	private Color color;
+	
+	private boolean makeHole = true;
+	
+	private double dx;
+	private double dy;
+	private double rad;
+	private double speed;
+	private double angle = 0;
+	public boolean left;
+	public boolean right;
+	private double angleMove;
+	private double normalSpeed;
+	private Main main;
+	
+	public Player(double x, double y, Main main) {
+		this.x = x;
+		this.y = y;
+		color = Color.green;
+		normalSpeed = 3;
+		angleMove = 2;
+		this.main = main;
+	}
+	
+	public void tick() {
+		if(colliding()) {
+			//System.out.println("Colliding");
+		}
+		if(left) angle-=angleMove+normalSpeed/3;
+		if(right) angle+=angleMove+normalSpeed/3;
+		
+		speed = normalSpeed;
+		
+		rad = Math.toRadians(angle);
+		dx = Math.cos(rad) * speed;
+		dy = Math.sin(rad) * speed;
+		
+		x += dx;
+		y += dy;
+		
+	}
+	
+	private boolean colliding() {
+		boolean rgw = false;
+		Color pixelColor = new Color(main.getBiMap().getRGB((int)x, (int)y));
+		if(pixelColor != color && pixelColor != new Color(0,0,0)) {
+			rgw = true;
+		}
+		
+		return rgw;
+	}
+	
+	public void render(Graphics2D g) {
+		if(main.isStartedDrawing()) {
+			g = main.getBiMap().createGraphics();
+		}
+		g.setColor(color);
+		g.fillOval((int)x, (int)y, 10, 10);
+	}
+}

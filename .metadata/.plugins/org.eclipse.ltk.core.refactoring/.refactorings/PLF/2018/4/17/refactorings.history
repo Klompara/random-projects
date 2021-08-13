@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;gui.MenuListe&apos; to &apos;ReiseListe&apos;&#x0D;&#x0A;- Original project: &apos;PLF&apos;&#x0D;&#x0A;- Original element: &apos;gui.MenuListe&apos;&#x0D;&#x0A;- Renamed element: &apos;gui.ReiseListe&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;MenuListe&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;gui{MenuListe.java[MenuListe" matchStrategy="1" name="ReiseListe" qualified="false" references="true" similarDeclarations="false" stamp="1524723573684" textual="false" version="1.0"/>
+</session>

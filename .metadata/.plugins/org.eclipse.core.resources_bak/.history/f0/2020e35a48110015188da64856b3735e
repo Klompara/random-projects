@@ -1,0 +1,22 @@
+package Game;
+
+import java.awt.Graphics2D;
+
+import Game.Entitys.Player;
+
+public class Handler {
+	
+	private Player player;
+	
+	public Handler() {
+		player = new Player();
+	}
+	
+	public void tick() {
+		player.tick();
+	}
+	
+	public void render(Graphics2D g){
+		player.render(g);
+	}
+}

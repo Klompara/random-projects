@@ -1,0 +1,21 @@
+package gui;
+
+import javax.swing.JPanel;
+
+import bll.Task;
+
+public class DialogTaskEdit extends JPanel {
+
+	private static final long serialVersionUID = 1L;
+	private Task task;
+	
+	public DialogTaskEdit(Task task) {
+		this.task = task;
+		initializeControls();
+	}
+	
+	private void initializeControls() {
+		
+	}
+	
+}

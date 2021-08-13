@@ -1,0 +1,49 @@
+package pathfinder;
+
+public class Field {
+
+	private boolean opened;
+	private boolean wall;
+	private boolean start;
+	private boolean end;
+	
+	public Field(boolean isStart, boolean isEnd) {
+		opened = false;
+		wall = false;
+		if(isStart) isEnd = false;
+		start = isStart;
+		end = isEnd;
+	}
+
+	public boolean isOpened() {
+		return opened;
+	}
+
+	public void setOpened(boolean opened) {
+		this.opened = opened;
+	}
+
+	public boolean isWall() {
+		return wall;
+	}
+
+	public void setWall(boolean wall) {
+		this.wall = wall;
+	}
+
+	public boolean isStart() {
+		return start;
+	}
+
+	public void setStart(boolean start) {
+		this.start = start;
+	}
+
+	public boolean isEnd() {
+		return end;
+	}
+
+	public void setEnd(boolean end) {
+		this.end = end;
+	}	
+}

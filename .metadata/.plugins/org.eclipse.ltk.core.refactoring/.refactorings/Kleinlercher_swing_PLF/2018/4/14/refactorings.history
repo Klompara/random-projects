@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;MenuListe.java&apos; to &apos;Kleinlercher_swing_PLF/src/gui&apos;&#x0D;&#x0A;- Original project: &apos;Kleinlercher_swing_PLF&apos;&#x0D;&#x0A;- Destination element: &apos;Kleinlercher_swing_PLF/src/gui&apos;&#x0D;&#x0A;- Original element: &apos;bll.MenuListe.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;gui" element1="/src&lt;bll{MenuListe.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1522934309096" units="1" version="1.0"/>
+</session>

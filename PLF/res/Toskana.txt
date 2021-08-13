@@ -1,0 +1,34 @@
+Beschreibung Tag 1
+==================
+
+"Fahrt nach Bologna und Besuch"
++"\ndes Lamborghini Museums bzw. der Lamborghini"
++"\nFabrik.+ "\nWeiterfahrt nach Florenz wo 
++"\nwir unsere Zimmer im Hotel Victoria***"
++"\noder Hotel Basilea*** beziehen."
+
+Beschreibung Tag 2
+==================
+
+"Nach dem Frühstück machen wir uns auf den Weg"
++ "\n nach Pisa, wo wir eine Stadtbesichtigung "
++ "\n(inkl. Schiefer Turm) unternehmen. Anschließend geht"
++ "\ndie Fahrt weiter zu den Marmorsteinbrüchen von Carrara,"
++ "\n die wir mit einem Jeep erforschen. Danach geht die Fahrt "
++ "\nzurück ins Hotel in Florenz."
+
+Beschreibung Tag 3
+==================
+
+"Nach dem Frühstücksbuffet erkunden wir Florenz mit einem"
++ "\nörtlichen Reiseleiter.(Piazza del Duomo, Ponte Vecchio"
++ "\n, Ufficien etc.) Am Nachmittag geht es weiter nach Siena"
++ "\n, wo wir das Hotel Moderno*** beziehen."
+
+Beschreibung Tag 4
+==================
+
+"Heute erforschen wir nach dem Frühstück die "
++ "\nSehenswürdigkeiten in Siena. "
++ "\n(Piazza del Capo, Dom etc.) Danach treten "
++ "\nwir die Heimreise an."

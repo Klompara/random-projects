@@ -1,0 +1,1 @@
+( "(" [ "-" | "+" ] "ZON" "<Ziffer>" ")" ) | ( ["+"] "ZON" <"Ziffer"> ) "Operand" ( "(" [ "-" | "+" ] "ZON" "<Ziffer>" ")" ) | ( "ZON" "<Ziffer>" )

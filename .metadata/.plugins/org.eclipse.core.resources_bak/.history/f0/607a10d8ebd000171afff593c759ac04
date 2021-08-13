@@ -1,0 +1,71 @@
+package sender;
+
+import java.awt.HeadlessException;
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.SocketException;
+import java.net.UnknownHostException;
+
+import javax.swing.JOptionPane;
+
+public class Sender {
+	public static void main(String[] args) {
+		DatagramSocket socket = null;
+		InetAddress ipAdress = null;
+		String message = "abc";
+
+		int answer = 0;
+		int port = 8556;
+		
+		try {
+			ipAdress = InetAddress.getByName(JOptionPane.showInputDialog(null, "IP-Addrese: ", "localhost", JOptionPane.QUESTION_MESSAGE));
+			socket = new DatagramSocket();
+		} catch (HeadlessException | UnknownHostException | SocketException e1) {
+			e1.printStackTrace();
+		}
+		//port = Integer.parseInt(JOptionPane.showInputDialog("Port:"));
+		
+		// Check if receiver active
+		
+		sendData("CheckIfOnline;", socket, ipAdress, port);
+		DatagramSocket socketReceive = null;
+		try {
+			socketReceive = new DatagramSocket(port);
+			byte[] data = new byte[1024];
+			DatagramPacket packet = new DatagramPacket(data, data.length);
+			while(!message.startsWith("IMONLINE;")) {
+				JOptionPane.showMessageDialog(null, "Waiting for Receiver to reply... (CLICK OK)");
+				try {
+					socketReceive.receive(packet);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				message = new String(packet.getData(), 0, packet.getLength());
+				message = message.replace("", ""); // Not sure why this is here maybe crap
+				System.out.println(message);
+				//if(System.currentTimeMillis() - time )
+			}
+			JOptionPane.showMessageDialog(null, "Receiver replied!");
+		} catch (SocketException e1) {
+			e1.printStackTrace();
+		}
+		
+		// Send data
+		do{
+			String command = JOptionPane.showInputDialog("Command:");
+			sendData(command, socket, ipAdress, port);
+			answer = JOptionPane.showConfirmDialog(null, "Wiederholen?", null, JOptionPane.YES_NO_OPTION);
+		}while(answer == JOptionPane.YES_OPTION);
+	}
+	
+	private static void sendData(String command, DatagramSocket socket, InetAddress ipAdress, int port) {
+		DatagramPacket packet = new DatagramPacket(command.getBytes(), command.getBytes().length, ipAdress, port);
+		try {
+			socket.send(packet);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}

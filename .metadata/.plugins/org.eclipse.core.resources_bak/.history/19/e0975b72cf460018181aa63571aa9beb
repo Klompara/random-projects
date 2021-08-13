@@ -1,0 +1,15 @@
+package dal;
+
+import java.util.ArrayList;
+
+import bll.Task;
+
+public class DatabaseIO {
+
+	public DatabaseIO() {}
+	
+	public void writeTasks(ArrayList<Task> tasks) {
+		
+	}
+	
+}

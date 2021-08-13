@@ -1,0 +1,43 @@
+package Game;
+
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+public class KeyInput extends KeyAdapter implements KeyListener{
+
+	private Main main;
+	
+	public KeyInput(Main main) {
+		this.main = main;
+	}
+	
+	public static boolean isPressingRight = false;
+	public static boolean isPressingLeft = false;
+	
+	public void keyPressed(KeyEvent e) {
+		int key = e.getKeyCode();
+		if(main.getCurrentState() == Main.GAMESATES.MAINMENU) {
+			if(key == KeyEvent.VK_ENTER) {
+				main.setCurrentState(Main.GAMESATES.PLAY);
+			}
+		} else if(main.getCurrentState() == Main.GAMESATES.PLAY) {
+			if(key == KeyEvent.VK_RIGHT) {
+				isPressingRight = true;
+			}else if(key == KeyEvent.VK_LEFT) {
+				isPressingLeft = true;
+			}
+		}
+	}
+
+	public void keyReleased(KeyEvent e) {
+		int key = e.getKeyCode();
+		if(main.getCurrentState() == Main.GAMESATES.PLAY) {
+			if(key == KeyEvent.VK_RIGHT) {
+				isPressingRight = false;
+			}else if(key == KeyEvent.VK_LEFT) {
+				isPressingLeft = false;
+			}
+		}
+	}
+}

@@ -1,0 +1,18 @@
+// center of image
+Point2D center = new Point2D.Float(radius, radius);
+ 
+// focus of radial gradient (centered)
+Point2D focus = new Point2D.Float(radius, radius);
+// optionally set the focus to a side (instead of the center) to give direction
+//focus.setLocation(Math.cos(angle) * 3 * radius / 4 + radius, Math.sin(angle) * 3 * radius / 4 + radius);
+ 
+// colors
+float[] dist = {0f, 1f};
+Color[] colors = {new Color(0, 0, 0, luminosity), new Color(0, 0, 0, 0)};
+ 
+// set the paint
+RadialGradientPaint rgp = new RadialGradientPaint(center, radius, focus, dist, colors, MultipleGradientPaint.CycleMethod.NO_CYCLE);
+g2.setPaint(rgp);
+ 
+// draw light
+g2.fillOval(0, 0, radius * 2, radius * 2);

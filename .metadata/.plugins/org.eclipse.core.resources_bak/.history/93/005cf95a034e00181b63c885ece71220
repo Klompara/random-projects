@@ -1,0 +1,38 @@
+package gui;
+
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import bll.Task;
+
+public class DialogTaskEdit extends JPanel {
+
+	private static final long serialVersionUID = 1L;
+	private Task task;
+	private JLabel labelFach;
+	private JLabel labelAufgabe;
+	private JLabel labelDate;
+	private JComboBox<String> comboFach;
+	private JTextField textfAufgabe;
+	private JTextField textfDate;
+	private JButton submit;
+	
+	public DialogTaskEdit(Task task) {
+		this.task = task;
+		initializeControls();
+	}
+	
+	private void initializeControls() {
+		this.setLayout(new GridLayout(0, 2));
+		this.labelFach = new JLabel("Fach: ");
+		this.labelAufgabe = new JLabel("Aufgabe: ");
+		this.labelDate = new JLabel("Datum: ");
+		
+	}
+	
+}

@@ -1,0 +1,12 @@
+Wert: 1
+Wert: 3
+Wert: 4
+Wert: 5
+Error: a
+Wert: 4
+Wert: 5
+Wert: 6
+Wert: 4
+Wert: 9
+Wert: 8
+Wert: 0
